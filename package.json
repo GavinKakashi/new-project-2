@@ -1,0 +1,20 @@
+{
+  "name": "agentry",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agentry — a mobile command center for AI agents. API server + Expo mobile app.",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "setup": "npm ci --prefix server && npm ci --prefix mobile",
+    "build": "npm run build --prefix server && npm run build:web --prefix mobile",
+    "start": "npm start --prefix server",
+    "dev": "npm run dev --prefix server",
+    "dev:mobile": "npm start --prefix mobile",
+    "test": "npm test --prefix server",
+    "typecheck": "npm run typecheck --prefix server && npm run typecheck --prefix mobile",
+    "replit": "sh scripts/replit-run.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
