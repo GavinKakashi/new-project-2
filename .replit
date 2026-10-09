@@ -1,0 +1,20 @@
+run = "npm run replit"
+modules = ["nodejs-22"]
+hidden = [".config", "**/node_modules", "**/dist", "data"]
+
+[nix]
+channel = "stable-24_05"
+
+[env]
+PORT = "3000"
+DATABASE_PATH = "data/agentry.db"
+
+[deployment]
+# A Reserved VM keeps the scheduler running 24/7 so scheduled agents fire on time.
+deploymentTarget = "vm"
+build = ["sh", "-c", "npm run setup && npm run build"]
+run = ["sh", "-c", "NODE_ENV=production npm start"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
